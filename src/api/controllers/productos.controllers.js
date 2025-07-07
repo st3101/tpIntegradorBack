@@ -147,7 +147,7 @@ export const eliminarProducto = async (req, res) => {
         }
 
         res.status(200).json({
-            message: `Producto eliminado correctamente`
+            message: `Producto con id ${id} eliminado correctamente`
         });
 
     } catch (error) {
