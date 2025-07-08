@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 //Cargamos las variables de entorno desde el archivo .env
 dotenv.config(); 
 
+//Creamos un objeto y las exportamos
 export default {
     port: process.env.PORT || 3000,
     database: {
