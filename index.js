@@ -23,7 +23,6 @@ app.set('view engine', 'ejs');
 app.set('views', join(__dirname, 'src/views')); 
 
 
-
 //Middleware 
 //middleware para servir archivos estaticos
 app.use(express.static(join(__dirname, 'src/public')));
