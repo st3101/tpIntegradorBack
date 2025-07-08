@@ -40,11 +40,45 @@ app.get("/", (req, res) => {
     res.send('Hello World!');
 });
 
+//Rutas de EJS
 app.get("/dashboard", (req, res) => {
     //Renderizamos la vista index.ejs a partir de la ruta /dashboard
-    res.render('index');
+    res.render('index',{
+        title: "Inicio Dashboard",
+        about: "Listado de productos"
+    });
 }); 
-//Usamos las rutas de productos
+
+app.get("/dashboard/consultar", (req, res) => {
+    
+    res.render('consultar', {
+        title: "Consultar Producto",
+        about: "Consultar producto por ID"
+    });
+});
+
+app.get("/dashboard/crear", (req, res) => {
+    res.render('crear', {
+        title: "Crear Producto",
+        about: "Crear   nuevo producto"
+    });
+});
+
+app.get("/dashboard/actualizar", (req, res) => {
+    res.render('actualizar', {
+        title: "Actualizar Producto",
+        about: "Actualizar producto por ID"
+    });
+});
+
+app.get("/dashboard/eliminar", (req, res) => {
+    res.render('eliminar', {
+        title: "Eliminar Producto",
+        about: "Eliminar producto por ID"
+    });
+}); 
+
+
 app.use("/api/productos",  productosRoutes);
 
 app.listen(PORT, () => {
