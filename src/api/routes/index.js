@@ -1,3 +1,8 @@
 import productosRoutes from './productos.routes.js';
+import viewRoutes from './view.routes.js';
 
-export default productosRoutes;
+export{
+    productosRoutes,
+    viewRoutes
+} ;
+

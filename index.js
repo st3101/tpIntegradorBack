@@ -5,7 +5,7 @@ import environments from './src/api/config/environments.js';
 //importamos cors para permitir peticiones desde el front
 import cors from 'cors';
 //importamos las rutas de productos
-import productosRoutes from './src/api/routes/index.js';
+import {productosRoutes, viewRoutes} from './src/api/routes/index.js';
 //Importamos la funcion loggerUrl para dejar registro de las peticiones
 import { loggerUrl } from './src/api/middlewares/middlewares.js';
 //Importamos el modulo de rutas de productos
@@ -35,50 +35,12 @@ app.use(express.json());
 //Middleware para registrar las peticiones
 app.use(loggerUrl)
 
+
 //Rutas
-app.get("/", (req, res) => {
-    res.send('Hello World!');
-});
+//Responde con html con datos incrustados desde el
+app.use("/dashboard", viewRoutes);
 
-//Rutas de EJS
-app.get("/dashboard", (req, res) => {
-    //Renderizamos la vista index.ejs a partir de la ruta /dashboard
-    res.render('index',{
-        title: "Inicio Dashboard",
-        about: "Listado de productos"
-    });
-}); 
-
-app.get("/dashboard/consultar", (req, res) => {
-    
-    res.render('consultar', {
-        title: "Consultar Producto",
-        about: "Consultar producto por ID"
-    });
-});
-
-app.get("/dashboard/crear", (req, res) => {
-    res.render('crear', {
-        title: "Crear Producto",
-        about: "Crear   nuevo producto"
-    });
-});
-
-app.get("/dashboard/actualizar", (req, res) => {
-    res.render('actualizar', {
-        title: "Actualizar Producto",
-        about: "Actualizar producto por ID"
-    });
-});
-
-app.get("/dashboard/eliminar", (req, res) => {
-    res.render('eliminar', {
-        title: "Eliminar Producto",
-        about: "Eliminar producto por ID"
-    });
-}); 
-
-
+//Reponse con json y consume el fornt 
 app.use("/api/productos",  productosRoutes);
 
 app.listen(PORT, () => {

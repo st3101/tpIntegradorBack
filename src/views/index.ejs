@@ -5,3 +5,19 @@
 <hr>
 <h2 class="centrar"><%- about %></h2>
 <hr>
+
+<main class="main">
+    <ul id="productos-lista">
+        <% productos.forEach(producto => { %> 
+        <li class="producto-item">
+            <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" class="img-listados">
+            <p>
+                ID: <%= producto.id %> /
+                Nombre: <%= producto.nombre %> /
+                Categoria: <%= producto.categoria %> <br>
+                <strong>Precio: <%= producto.precio %></strong>
+            </p>
+        </li>
+        <% }) %>
+    </ul>
+</main>
