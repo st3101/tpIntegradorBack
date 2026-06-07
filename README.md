@@ -6,4 +6,4 @@ Editar el archivo *.env* con las variable correspondientes para levantar la base
 Instalar dependencías de npm con: ``npm i``
 
 ## Iniciar backend
-Con una consola en la base del repositorio correr: ``npm dev``
+Con una consola en la base del repositorio correr: ``npm run dev``
